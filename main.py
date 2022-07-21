@@ -9,19 +9,19 @@ def drawABorder(imgBW, width, height, leftToRight: bool):
     for i in range(width):
         for j in range(height):
             if leftToRight:
-                x = i
-                y = j
-            else:
-                x = j
                 y = i
-            (b, g, r) = imgBW[x, y]
+                x = j
+            else:
+                y = j
+                x = i
+            (b, g, r) = imgBW[y, x]
             if (b == 0 and g == 0 and r == 0 and not black):
                 coords.add(str(x) + ',' + str(y))
-                imgBW[x, y] = (0,0,255)
+                imgBW[y, x] = (0,0,255)
                 black = True
             elif (b == 255 and g == 255 and r == 255 and black):
                 coords.add(str(x) + ',' + str(y))
-                imgBW[x, y] = (0,0,255)
+                imgBW[y, x] = (0,0,255)
                 black = False
             
 
